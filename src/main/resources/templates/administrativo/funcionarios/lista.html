@@ -15,7 +15,7 @@
     >
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.3/css/dataTables.dataTables.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Cadastro de Estado</title>
+    <title>Cadastro de Funcionario</title>
 </head>
 <body>
 
@@ -46,24 +46,38 @@
     </div>
   </nav>
   
-    <div class="container">
+    <div class="container-fluid">
         <table class="table" id="tabela">
             <thead>
                 <tr>
                     <td>ID</td>
                     <td>Nome</td>
-                    <td>Sigla</td>
+                    <td>CPF</td>
+                    <td>Telefone</td>
+                    <td>Endereço</td>
+                    <td>Numero</td>
+                    <td>Bairro</td>
+                    <td>Email</td>
+                    <td>Função</td>
+                    <td>Cidade</td>
                     <td>Ação</td>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="estado: ${listaEstados}">
-                    <td th:text="${estado.id}"></td>
-                    <td th:text="${estado.nome}"></td>
-                    <td th:text="${estado.sigla}"></td>
+                <tr th:each="funcionario: ${listaFuncionarios}">
+                    <td th:text="${funcionario.id}"></td>
+                    <td th:text="${funcionario.nome}"></td>
+                    <td th:text="${funcionario.cpf}"></td>
+                    <td th:text="${funcionario.telefone}"></td>
+                    <td th:text="${funcionario.endereco}"></td>
+                    <td th:text="${funcionario.numero}"></td>
+                    <td th:text="${funcionario.bairro}"></td>
+                    <td th:text="${funcionario.email}"></td>
+                    <td th:text="${funcionario.funcao}"></td>
+                    <td th:text="${funcionario.cidade.nome}"></td>
                     <td colspan="2">
-                        <a th:href="@{/editarEstado/{id}(id=${estado.id})}"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a th:href="@{/removerEstado/{id}(id=${estado.id})}"><i class="fa-solid fa-trash"></i></a>
+                        <a th:href="@{/editarFuncionario/{id}(id=${funcionario.id})}"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a th:href="@{/removerFuncionario/{id}(id=${funcionario.id})}"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
             </tbody>
@@ -106,11 +120,6 @@
             $('#tabela').DataTable();
         } );
 
-        var table = new DataTable('#tabela', {
-            language: {
-                url: '//cdn.datatables.net/plug-ins/2.1.3/i18n/pt-BR.json',
-            },
-        });
     </script>
 </body>
 

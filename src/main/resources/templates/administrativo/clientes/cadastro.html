@@ -4,7 +4,7 @@
   xmlns:th="https://thymeleaf.org"
   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 >
-<link>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
@@ -13,9 +13,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
         crossorigin="anonymous"
     >
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.3/css/dataTables.dataTables.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Cadastro de Estado</title>
+    <title>Cadastro de Cliente</title>
 </head>
 <body>
 
@@ -46,36 +44,49 @@
     </div>
   </nav>
   
-    <div class="container">
-        <table class="table" id="tabela">
-            <thead>
-                <tr>
-                    <td>ID</td>
-                    <td>Nome</td>
-                    <td>Sigla</td>
-                    <td>Ação</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="estado: ${listaEstados}">
-                    <td th:text="${estado.id}"></td>
-                    <td th:text="${estado.nome}"></td>
-                    <td th:text="${estado.sigla}"></td>
-                    <td colspan="2">
-                        <a th:href="@{/editarEstado/{id}(id=${estado.id})}"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a th:href="@{/removerEstado/{id}(id=${estado.id})}"><i class="fa-solid fa-trash"></i></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<div class="container">
+    <form action="/salvarCliente" th:object="${cliente}" method="post">
+        <div class="form-group row">
+          <div class="col-md">
+            <label for="id">ID</label>
+            <input type="text" readonly="true" class="form-control" id="id" th:field="*{id}">
+            <label>Nome do Cliente</label>
+            <input type="text" required class="form-control" id="nome" th:field="*{nome}">
+            <label>CPF</label>
+            <input type="text" required class="form-control" id="nome" th:field="*{cpf}">
+            <label>Endereço</label>
+            <input type="text" required class="form-control" id="nome" th:field="*{endereco}">
+            <label>Telefone</label>
+            <input type="text" required class="form-control" id="nome" th:field="*{telefone}">
 
-            <div class="mt-2">
-            <a href="" >
-                <button type="submit" class="btn btn-primary">Salvar</button>
-            </a>
-            <a href="/administrativo" class="btn btn-danger">Voltar</a>
-            </div>
-    </div>
+          </div>
+          <div class="col-md">
+            <label>Numero</label>
+            <input type="text" required class="form-control" id="nome" th:field="*{numero}">
+            <label>Bairro</label>
+            <input type="text" required class="form-control" id="nome" th:field="*{bairro}">
+            <label>Email</label>
+            <input type="text" required class="form-control" id="nome" th:field="*{email}">
+  
+            <label>Cidade</label>
+            <select th:field="*{cidade}" class="form-control">
+              <option th:each="est : ${listaCidades}" th:value="${est.id}" th:text="${est.nome}"></option>
+            </select>
+
+          </div>
+          
+        </div>
+
+        <div class="mt-2">
+          <a href="/salvarCliente" >
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </a>
+          <a href="/administrativo" class="btn btn-danger">Voltar</a>
+          <a href="/listarCliente" class="btn btn-success">Lista</a>
+        </div>
+
+      </form>
+</div>
 
 
 
@@ -94,24 +105,8 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous">
     </script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
-        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer">
-    </script>
-    <script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script>
-    <script>
-        $(document).ready( function () {
-            $('#tabela').DataTable();
-        } );
-
-        var table = new DataTable('#tabela', {
-            language: {
-                url: '//cdn.datatables.net/plug-ins/2.1.3/i18n/pt-BR.json',
-            },
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js" integrity="sha512-gDWSGGWzTc0mD1P0NwDUsZsSrSyLsC8Mv0I14JtDFJXu2Pgo3ik5Uk1+BqxosbEJU2gDUD6W5DCpn7l29Ah9Ag==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
 </body>
 
 </html>
