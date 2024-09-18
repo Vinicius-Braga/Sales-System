@@ -15,7 +15,7 @@
     >
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.3/css/dataTables.dataTables.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Cadastro de Cidade</title>
+    <title>Cadastro de Produto</title>
 </head>
 <body>
 
@@ -23,15 +23,21 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <a href="../home.html">
-          <img src="https://w7.pngwing.com/pngs/188/680/png-transparent-shark-logo-mascot-sharks-marine-mammal-animals-team.png" alt="Bootstrap" width="35" height="35">
-        </a>
+        <img src="https://w7.pngwing.com/pngs/188/680/png-transparent-shark-logo-mascot-sharks-marine-mammal-animals-team.png" alt="Bootstrap" width="35" height="35">
       </a>
       <a class="navbar-brand text-white " href="#">Sistema de Vendas</a>
       <button class="navbar-toggler text-white " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon text-white "></span>
       </button>
       <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-white ">
+          <li class="nav-item">
+            <a class="nav-link active text-white " aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item text-white">
+            <a class="nav-link text-white " href="#">Link</a>
+          </li>
+        </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-light" type="submit">Pesquisar</button>
@@ -46,20 +52,31 @@
                 <tr>
                     <td>ID</td>
                     <td>Nome</td>
-                    <td>CEP</td>
-                    <td>Estado</td>
+                    <td>Código de Barras</td>
+                    <td>UN</td>
+                    <td>Estoque</td>
+                    <td>Preço de Custo</td>
+                    <td>Preço de Venda</td>
+                    <td>Lucro</td>
+                    <td>Margem de Lucro</td>
                     <td>Ação</td>
+                    
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="cidade: ${listaCidades}">
-                    <td th:text="${cidade.id}"></td>
-                    <td th:text="${cidade.nome}"></td>
-                    <td th:text="${cidade.cep}"></td>
-                    <td th:text="${cidade.estado.nome}"></td>
+                <tr th:each="produto: ${listaProdutos}">
+                    <td th:text="${produto.id}"></td>
+                    <td th:text="${produto.nome}"></td>
+                    <td th:text="${produto.codigoBarras}"></td>
+                    <td th:text="${produto.unidadeMedida}"></td>
+                    <td th:text="${produto.estoque}"></td>
+                    <td th:text="${produto.precoCusto}"></td>
+                    <td th:text="${produto.precoVenda}"></td>
+                    <td th:text="${produto.lucro}"></td>
+                    <td th:text="${produto.margemLucro}"></td>
                     <td colspan="2">
-                        <a th:href="@{/editarCidade/{id}(id=${cidade.id})}"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a th:href="@{/removerCidade/{id}(id=${cidade.id})}"><i class="fa-solid fa-trash"></i></a>
+                        <a th:href="@{/editarProduto/{id}(id=${produto.id})}"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a th:href="@{/removerProduto/{id}(id=${produto.id})}"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
             </tbody>
@@ -102,6 +119,11 @@
             $('#tabela').DataTable();
         } );
 
+        var table = new DataTable('#tabela', {
+            language: {
+                url: '//cdn.datatables.net/plug-ins/2.1.3/i18n/pt-BR.json',
+            },
+        });
     </script>
 </body>
 
