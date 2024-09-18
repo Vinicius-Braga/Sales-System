@@ -15,7 +15,7 @@
 <body>
 
   
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="https://w7.pngwing.com/pngs/188/680/png-transparent-shark-logo-mascot-sharks-marine-mammal-animals-team.png" alt="Bootstrap" width="35" height="35">
@@ -24,15 +24,7 @@
       <button class="navbar-toggler text-white " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon text-white "></span>
       </button>
-      <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-white ">
-          <li class="nav-item">
-            <a class="nav-link active text-white " aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item text-white">
-            <a class="nav-link text-white " href="#">Link</a>
-          </li>
-        </ul>
+      <div class="collapse navbar-collapse text-white d-flex flex-row-reverse" id="navbarSupportedContent">
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-light" type="submit">Pesquisar</button>
@@ -41,71 +33,82 @@
     </div>
   </nav>
   
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-3">
-      <ul class="list-group mt-2">
-        <li class="list-group-item bg-secondary text-white">Funcionalidades</li>
-          <a href="/cadastroVenda">
-            <li class="list-group-item">Efetuar Venda</li>
-          </a>
-          <a href="/cadastroEntrada">
-            <li class="list-group-item">Efetuar Entrada de Produto</li>
-          </a>
-
-        <li class="list-group-item bg-secondary text-white">Cadastros</li>
-          <a href="/cadastroEstado">
-            <li class="list-group-item">Cadastro Estado</li>
-          </a>
-          <a href="/cadastroCidade">
-            <li class="list-group-item">Cadastro Cidade</li>
-          </a>
-          <a href="/cadastroFuncionario">
-            <li class="list-group-item">Cadastro Funcionario</li>
-          </a>
-          <a href="/cadastroCliente">
-            <li class="list-group-item">Cadastro Cliente</li>
-          </a>
-          <a href="/cadastroFornecedor">
-            <li class="list-group-item">Cadastro Fornecedor</li>
-          </a>
-          <a href="/cadastroProduto">
-            <li class="list-group-item">Cadastro Produto</li>
-          </a>
-
-        <li class="list-group-item bg-secondary text-white">Listas</li>
-          <a href="/listarEstado">
-            <li class="list-group-item">Lista Estado</li>
-          </a>
-          <a href="/listarCidade">
-            <li class="list-group-item">Lista Cidade</li>
-          </a>
-          <a href="/listarFuncionario">
-            <li class="list-group-item">Lista Funcionario</li>
-          </a>
-          <a href="/listarliente">
-            <li class="list-group-item">Lista Cliente</li>
-          </a>
-          <a href="/listarFornecedor">
-            <li class="list-group-item">Lista Fornecedor</li>
-          </a>
-          <a href="/listarProduto">
-            <li class="list-group-item">Lista Produto</li>
-          </a>
-          <a href="/listarVendas">
-            <li class="list-group-item">Lista Vendas</li>
-          </a>
-          <a href="/listarEntradas">
-            <li class="list-group-item">Lista Entradas</li>
-          </a>
-      </ul>
-    </div>
-    <div class="col-md-9">
-      <h1>Bem Vindo</h1>
-      <p>Sistema de vendas simplificado e intuitivo!</p>
+  <div class="container-fluid menu">
+    <div class="row">
+      <div class="col-md-2 p-0">
+        <ul class="list-group">
+  
+  
+  
+          <a class="list-group-item bg-secondary text-white" data-bs-toggle="collapse" data-bs-target="#Funcionalidades" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-gears"></i>      Funcionalidades</a>
+            <div class="collapse" id="Funcionalidades">
+              <a href="/cadastroVenda">
+                <li class="list-group-item">Efetuar Venda</li>
+              </a>
+              <a href="/cadastroEntrada">
+                <li class="list-group-item">Efetuar Entrada de Produto</li>
+              </a>
+            </div>
+            
+  
+          <li class="list-group-item bg-secondary text-white" data-bs-toggle="collapse" data-bs-target="#Cadastros" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-folder"></i>        Cadastros</li>
+            <div class="collapse" id="Cadastros">
+              <a href="/cadastroEstado">
+                <li class="list-group-item">Cadastro Estado</li>
+              </a>
+              <a href="/cadastroCidade">
+                <li class="list-group-item">Cadastro Cidade</li>
+              </a>
+              <a href="/cadastroFuncionario">
+                <li class="list-group-item">Cadastro Funcionario</li>
+              </a>
+              <a href="/cadastroCliente">
+                <li class="list-group-item">Cadastro Cliente</li>
+              </a>
+              <a href="/cadastroFornecedor">
+                <li class="list-group-item">Cadastro Fornecedor</li>
+              </a>
+              <a href="/cadastroProduto">
+                <li class="list-group-item">Cadastro Produto</li>
+              </a>
+            </div>
+  
+          <li class="list-group-item bg-secondary text-white" data-bs-toggle="collapse" data-bs-target="#Listas" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-sharp-duotone fa-solid fa-list-check"></i>       Listas</li>
+            <div class="collapse" id="Listas">
+              <a href="/listarEstado">
+                <li class="list-group-item">Lista Estado</li>
+              </a>
+              <a href="/listarCidade">
+                <li class="list-group-item">Lista Cidade</li>
+              </a>
+              <a href="/listarFuncionario">
+                <li class="list-group-item">Lista Funcionario</li>
+              </a>
+              <a href="/listarliente">
+                <li class="list-group-item">Lista Cliente</li>
+              </a>
+              <a href="/listarFornecedor">
+                <li class="list-group-item">Lista Fornecedor</li>
+              </a>
+              <a href="/listarProduto">
+                <li class="list-group-item">Lista Produto</li>
+              </a>
+              <a href="/listarVendas">
+                <li class="list-group-item">Lista Vendas</li>
+              </a>
+              <a href="/listarEntrada">
+                <li class="list-group-item">Lista Entradas</li>
+              </a>
+            </div>
+        </ul>
+      </div>
+      <div class="col-md-10">
+        <h1>Bem Vindo</h1>
+        <p>Sistema de vendas simplificado e intuitivo!</p>
+      </div>
     </div>
   </div>
-</div>
+
 
 
 

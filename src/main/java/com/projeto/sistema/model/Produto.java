@@ -23,11 +23,19 @@ public class Produto implements Serializable{
     private String nome;
     private String codigoBarras;
     private String unidadeMedida;
-    private Double estoque;
-    private Double precoCusto;
-    private Double precoVenda;
-    private Double lucro;
-    private Double margemLucro;
+    private Double estoque = 0.00;
+    private Double precoCusto = 0.00;
+    private Double precoVenda = 0.00;
+    private Double lucro = 0.00;
+    private Double margemLucro = 0.00;
+
+    public Double getEstoque() {
+        return estoque;
+    }
+
+    public Long getId() {
+        return id;
+    }
 
 
 }
